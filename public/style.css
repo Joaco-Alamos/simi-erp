@@ -1,0 +1,282 @@
+/* --- RESET Y ESTILOS GENERALES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* --- TARJETA DE LOGIN --- */
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 35px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.6s ease-out;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- LOGO Y TÍTULO --- */
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a73e8;
+    letter-spacing: -0.5px;
+}
+
+.logo h1 span {
+    color: #0d47a1;
+}
+
+.logo p {
+    color: #666;
+    font-size: 14px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.logo .icon {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+/* --- CAMPOS DEL FORMULARIO --- */
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1a73e8;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+}
+
+.form-group input.error {
+    border-color: #d32f2f;
+    background: #fff5f5;
+}
+
+.form-group .error-msg {
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+    font-weight: 500;
+}
+
+.form-group .error-msg.visible {
+    display: block;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+/* --- BOTÓN --- */
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #1a73e8, #0d47a1);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-login:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(26, 115, 232, 0.4);
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+.btn-login:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-login .spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.btn-login.loading .spinner {
+    display: inline-block;
+}
+
+.btn-login.loading .btn-text {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- RESULTADO (ÉXITO) --- */
+#result {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background: #e8f5e9;
+    border-radius: 12px;
+    border-left: 4px solid #2e7d32;
+    animation: fadeInUp 0.5s ease;
+}
+
+#result .success-icon {
+    font-size: 24px;
+    color: #2e7d32;
+    margin-right: 10px;
+}
+
+#result .token-box {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    word-break: break-all;
+    margin-top: 10px;
+    border: 1px solid #c8e6c9;
+    color: #1b5e20;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#result .user-info {
+    font-weight: 600;
+    color: #1b5e20;
+    margin-bottom: 5px;
+}
+
+.btn-logout {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #b71c1c;
+}
+
+/* --- MENSAJE DE ERROR GLOBAL --- */
+.global-error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid #d32f2f;
+    display: none;
+    font-weight: 500;
+    animation: shake 0.4s ease;
+}
+
+.global-error.visible {
+    display: block;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+    .card {
+        padding: 25px 20px;
+    }
+    .logo h1 {
+        font-size: 26px;
+    }
+    .form-group input {
+        padding: 12px 14px;
+    }
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}

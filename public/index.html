@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMI ERP - Portal de Autenticación</title>
+    <!-- Enlazamos el CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <div class="icon">💊</div>
+                <h1>SIMI <span>ERP</span></h1>
+                <p>Portal de Autenticación Segura</p>
+            </div>
+
+            <!-- Mensaje de error global -->
+            <div id="globalError" class="global-error">⚠️ Credenciales inválidas. Intenta nuevamente.</div>
+
+            <!-- Formulario de login -->
+            <form id="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="email">📧 Correo electrónico</label>
+                    <input type="email" id="email" placeholder="admin@simi.cl" value="admin@simi.cl" required>
+                    <div class="error-msg" id="emailError">Ingresa un correo válido.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">🔒 Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" value="admin123" required minlength="6">
+                    <div class="error-msg" id="passwordError">La contraseña debe tener al menos 6 caracteres.</div>
+                </div>
+
+                <button type="submit" class="btn-login" id="loginBtn">
+                    <span class="btn-text">🔑 Iniciar Sesión</span>
+                    <span class="spinner"></span>
+                </button>
+            </form>
+
+            <!-- Resultado (login exitoso) -->
+            <div id="result">
+                <div>
+                    <span class="success-icon">✅</span>
+                    <strong style="font-size:18px; color:#2e7d32;">Acceso concedido</strong>
+                </div>
+                <div class="user-info" id="userInfo">Bienvenido Administrador (admin@simi.cl)</div>
+                <div style="font-size:13px; color:#555; margin:5px 0;">Token JWT generado:</div>
+                <div class="token-box" id="tokenDisplay">eyJhbGciOiJIUzI1NiIs...</div>
+                <button class="btn-logout" id="logoutBtn">🚪 Cerrar sesión</button>
+            </div>
+        </div>
+        <div class="footer">
+            © 2026 · Farmacias SIMI · Infraestructura Multicloud
+        </div>
+    </div>
+
+    <!-- Enlazamos el JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
